@@ -1,36 +1,5 @@
-# Keras-FlappyBird
+# Safe reinforcement learning:
+RL is emerging as a powerful paradigm to automatically develop autonomous components or agents for sophisticated safety-critical systems such as self-driving cars, unmanned aircrafts, etc. Basically, RL-based agents learn by exploring possible actions and receiving feedback from the environment overtime. However, guaranteeing their safe operation -- an imperative in safety-critical domain -- remains a challenge since RL-approaches fundamentally lack the notion of rigorous and thorough safety considerations. Further, their behaviours are completely based on the training situations that are far limited in time and geographical horizons in comparison to their actual operating environment. Apparently, addressing these gaps will enhance their use in safety-critical domain.
 
-A single 200 lines of python code to demostrate DQN with Keras
+To that end, we propose an safety-driven training approach in which RL is augmented with (a) advanced simulator to provide a rich set of training situations, and (b) formal verification tool (SMT-solvers) to rigorously ensure safe properties are upheld during training. This approach guides the RL agent to learn behaviours within the predefined zone of safety, over a wide range of scenarios. In fact, it also helps assess the adequacy of pre-defined safety properties and training situations. We illustrate our approach and its benefits using a case example.
 
-Please read the following blog for details
-
-https://yanpanlau.github.io/2016/07/10/FlappyBird-Keras.html
-
-![](animation1.gif)
-
-# Installation Dependencies:
-
-* Python 2.7
-* Keras 1.0 
-* pygame
-* scikit-image
-
-# How to Run?
-
-**CPU only**
-
-```
-git clone https://github.com/yanpanlau/Keras-FlappyBird.git
-cd Keras-FlappyBird
-python qlearn.py -m "Run"
-```
-
-**GPU version (Theano)**
-
-```
-git clone https://github.com/yanpanlau/Keras-FlappyBird.git
-cd Keras-FlappyBird
-THEANO_FLAGS=device=gpu,floatX=float32,lib.cnmem=0.2 python qlearn.py -m "Run"
-```
-
-If you want to train the network from beginning, delete the model.h5 and run qlearn.py -m "Train"
